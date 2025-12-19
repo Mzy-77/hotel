@@ -296,7 +296,7 @@ public class UserFram extends javax.swing.JFrame {
 
         jTabbedPane2.addTab("Room service", jPanel9);
 
-        CustomerId2.addActionListener(this::CustomerId2ActionPerformed);
+
 
         jLabel19.setText("Room Id");
 
@@ -476,9 +476,6 @@ public class UserFram extends javax.swing.JFrame {
 
         jLabel8.setText("Email");
 
-        CusId.addActionListener(this::CusIdActionPerformed);
-
-        CusName.addActionListener(this::CusNameActionPerformed);
 
         Addcus.setText("Add");
         Addcus.addActionListener(this::AddcusActionPerformed);

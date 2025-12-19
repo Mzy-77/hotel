@@ -32,9 +32,10 @@ public class mainfram extends javax.swing.JFrame {
         roomManger.loadRoomsFromFile();
         roomManger.loadServicesFromFile();
         roomManger.loadReservationsFromFile(customers);
-        populateFiltersAndServices();
+
 
         initComponents();
+        populateFiltersAndServices();
         loadEmployeesToTable();
         loadCustomersToTable();
         loadServicesToTable();
