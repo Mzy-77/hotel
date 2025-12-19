@@ -1,5 +1,0 @@
-1;Mohammed;+249123456789;Fulan@gmail.com
-2;Ahmed;+249123456789;Fulan@gmail.com
-3;Ali;+249123456789;Fulan@gmail.com
-4;Khalid;+249123456789;Fulan@gmail.com
-5;Hassan;+249123456789;Fulan@gmail.com

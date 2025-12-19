@@ -1,4 +1,0 @@
-2;ahmed;0000000000;mohammed@gmail.com
-3;ammar;0000000000;mohammed@gmail.com
-4;Khalid;0000000000;mohammed@gmail.com
-6;omar;3977992;omar!gmail
