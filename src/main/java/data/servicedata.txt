@@ -1,0 +1,2 @@
+1;breakfasy;Get Breakfast to your room;2.0
+2;Cleaning;Get a full room cleaning;2.0
