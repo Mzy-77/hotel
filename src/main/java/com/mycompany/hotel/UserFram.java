@@ -51,7 +51,7 @@ public class UserFram extends javax.swing.JFrame {
 
 
         for (Reservation r : roomManger.getReservations().values()) {
-            // قائمة الخدمات كـ String مفصولة بفاصلة
+  
             String servicesStr = "";
             if (r.getServices() != null && !r.getServices().isEmpty()) {
                 for (Service s : r.getServices()) {
@@ -591,6 +591,7 @@ public class UserFram extends javax.swing.JFrame {
         customers.put(id, new Customers(id, name, phone, email));
         userManager.saveCustomersToFile();
         loadCustomersToTable();
+        CusId.setText(""); CusName.setText(""); CusPhone.setText(""); CusEmail.setText("");
     }                                         
 
     private void DeletecusActionPerformed(java.awt.event.ActionEvent evt) {
@@ -614,6 +615,7 @@ public class UserFram extends javax.swing.JFrame {
         String email = CusEmail.getText();
         customers.put(id, new Customers(id, name, phone, email));
         loadCustomersToTable();
+        CusId.setText(""); CusName.setText(""); CusPhone.setText(""); CusEmail.setText("");
         userManager.saveCustomersToFile();} catch (Exception e) {JOptionPane.showMessageDialog(this, e.getMessage());
         }
 

@@ -269,6 +269,7 @@ public class mainfram extends javax.swing.JFrame {
                 "Id", "Name", "Phone", "Email"
             }
         ));
+        
         jScrollPane1.setViewportView(EmployeeTable);
 
         AddEmployee.setText("Add");
@@ -967,6 +968,16 @@ public class mainfram extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void EmployeeTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeeTableActionPerformed
+       int row = EmployeeTable.getSelectedRow();
+        if (row != -1) {
+            Eid.setText(EmployeeTable.getValueAt(row, 0).toString());
+            Ename.setText(EmployeeTable.getValueAt(row, 1).toString());
+            Ephone.setText(EmployeeTable.getValueAt(row, 2).toString());
+            Empemail.setText(EmployeeTable.getValueAt(row, 3).toString());
+        }
+    }
+
     private void AddEmployeeActionPerformed(java.awt.event.ActionEvent evt) {
         try{
             int id = Integer.parseInt(Eid.getText());
@@ -976,11 +987,14 @@ public class mainfram extends javax.swing.JFrame {
             employees.put(id, new Employee(id, name, phone, email));
             userManager.saveEmployeesToFile();
             loadEmployeesToTable();
+
+            
         }
             catch(Exception e){
             JOptionPane.showMessageDialog(this, e.getMessage());
 
         }
+         Eid.setText(""); Ename.setText(""); Ephone.setText(""); Empemail.setText("");
         
     }                                           
 
@@ -995,11 +1009,14 @@ public class mainfram extends javax.swing.JFrame {
         employees.remove(id);
         userManager.saveEmployeesToFile();
         loadEmployeesToTable();
+         Eid.setText(""); Ename.setText(""); Ephone.setText(""); Empemail.setText("");
+        
     }                                               
 
     private void UpdateEmployeeActionPerformed(java.awt.event.ActionEvent evt) {
         Integer id = null;
         int row = EmployeeTable.getSelectedRow();
+        Eid.setText(EmployeeTable.getValueAt(row, 0).toString());
         if (row != -1) id = Integer.parseInt(EmployeeTable.getValueAt(row, 0).toString());
         else if (!Eid.getText().isEmpty()) id = Integer.parseInt(Eid.getText());
         if (id == null || !employees.containsKey(id)) return;
@@ -1010,8 +1027,8 @@ public class mainfram extends javax.swing.JFrame {
         employees.put(id, new Employee(id, name, phone, email));
         userManager.saveEmployeesToFile();
         loadEmployeesToTable();
-    }                                              
-
+    }    
+    
     private void CusNameActionPerformed(java.awt.event.ActionEvent evt) {
     }
 
@@ -1021,7 +1038,10 @@ public class mainfram extends javax.swing.JFrame {
     private void AddcusActionPerformed(java.awt.event.ActionEvent evt) {
         try{
             int id = Integer.parseInt(CusId.getText());
-
+            if (customers.containsKey(id)) {
+                JOptionPane.showMessageDialog(this, "Customer ID already exists");
+                return;
+            }
             String name = CusName.getText();
             String phone = CusPhone.getText();
             String email = CusEmail.getText();
@@ -1031,6 +1051,7 @@ public class mainfram extends javax.swing.JFrame {
         } catch(Exception e){
             JOptionPane.showMessageDialog(this, e.getMessage());
         }
+        CusId.setText(""); CusName.setText(""); CusPhone.setText(""); CusEmail.setText("");
 
 
     }                                      
@@ -1066,15 +1087,22 @@ public class mainfram extends javax.swing.JFrame {
     }                                         
 
     private void AddServicebtnActionPerformed(java.awt.event.ActionEvent evt) {
-        try{int id = Integer.parseInt(ServiceId.getText());
+        try{
+        int id = Integer.parseInt(ServiceId.getText());
+        if (services.containsKey(id)) {
+            JOptionPane.showMessageDialog(this, "Service ID already exists");
+            return;
+        }
         String name = ServiceName.getText();
         String desc = ServiceDescription.getText();
         double price = Double.parseDouble(ServicePrice.getText());
         services.put(id, new Service(id, name, desc, price));
         roomManger.saveServicesToFile();
-        loadServicesToTable();} catch (Exception e) {
+        loadServicesToTable();} 
+        catch (Exception e) {
             JOptionPane.showMessageDialog(this, e.getMessage());
         }
+        ServiceId.setText(""); ServiceName.setText(""); ServiceDescription.setText(""); ServicePrice.setText("");
     }                                             
 
     private void ServiceDeleteActionPerformed(java.awt.event.ActionEvent evt) {
@@ -1134,6 +1162,8 @@ public class mainfram extends javax.swing.JFrame {
     username.getUserPassList().removeIf(u -> u.getUsername().equals(uname));
     username.SaveUsers();
     loadUsersToTable();
+    Username.setText("");
+    UserPass.setText("");
     }                                          
 
     private void UpdateUserActionPerformed(java.awt.event.ActionEvent evt) {
@@ -1408,6 +1438,7 @@ public class mainfram extends javax.swing.JFrame {
 
     }                                        
 
+    
 
     
 
